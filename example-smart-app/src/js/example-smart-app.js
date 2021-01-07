@@ -4,20 +4,15 @@
 
     function onError() {
       console.log('Loading error', arguments);
-      const error = arguments[0].error;
-      const statusCode = error.statusCode()
-      console.error(`${JSON.stringify(statusCode)}: ${JSON.stringify(error)}`)
       ret.reject();
     }
 
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
-        var encounter = smart.encounter;
-        debugger;
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
-                    type: 'Encounter',
+                    type: 'Observation',
                     // query: {
                     //   code: {
                     //     $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',

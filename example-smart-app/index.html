@@ -86,14 +86,14 @@
     <script>
       extractData().then(
         //Display Patient Demographics and Observations if extractData was success
-        function(p) {
+        res = (p) => {
           drawVisualization(p);
         },
 
         //Display 'Failed to call FHIR Service' if extractData failed
-        function() {
+        err = (err) => {
           $('#loading').hide();
-          $('#errors').html('<p> Failed to call FHIR Service </p>');
+          $('#errors').html(`<p> Failed to call FHIR Service <b>${JSON.stringify(err)}</b><p>`);
         }
       );
     </script>
