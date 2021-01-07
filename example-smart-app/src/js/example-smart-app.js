@@ -4,7 +4,9 @@
 
     function onError() {
       console.log('Loading error', arguments);
-      console.log(arguments[0].error.error())
+      const error = arguments[0].error;
+      const statusCode = error.statusCode()
+      console.error(`${statusCode}: ${error}`)
       ret.reject();
     }
 
