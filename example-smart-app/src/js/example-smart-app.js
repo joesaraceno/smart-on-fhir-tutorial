@@ -4,6 +4,7 @@
 
     function onError() {
       console.log('Loading error', arguments);
+      console.log(arguments[0].error)
       ret.reject();
     }
 
