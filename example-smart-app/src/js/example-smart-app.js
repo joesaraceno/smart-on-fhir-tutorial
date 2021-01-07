@@ -6,7 +6,7 @@
       console.log('Loading error', arguments);
       const error = arguments[0].error;
       const statusCode = error.statusCode()
-      console.error(`${statusCode}: ${error}`)
+      console.error(`${JSON.stringify(statusCode)}: ${JSON.stringify(error)}`)
       ret.reject();
     }
 
